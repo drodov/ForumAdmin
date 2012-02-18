@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ForumV2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ForumV2ModelStoreContainer">
+          <EntitySet Name="Forum" EntityType="ForumV2Model.Store.Forum" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Post" EntityType="ForumV2Model.Store.Post" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="ForumV2Model.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Topic" EntityType="ForumV2Model.Store.Topic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="ForumV2Model.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsersInRoles" EntityType="ForumV2Model.Store.UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTopicLastActiv" EntityType="ForumV2Model.Store.UserTopicLastActiv" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Forum_Users" Association="ForumV2Model.Store.FK_Forum_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Forum" Association="ForumV2Model.Store.FK_Post_Forum">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Topic" Association="ForumV2Model.Store.FK_Post_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users" Association="ForumV2Model.Store.FK_Post_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Forum1" Association="ForumV2Model.Store.FK_Topic_Forum1">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Users" Association="ForumV2Model.Store.FK_Topic_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInRoles_Roles" Association="ForumV2Model.Store.FK_UsersInRoles_Roles">
+            <End EntitySet="Roles" Role="Roles" />
+            <End EntitySet="UsersInRoles" Role="UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInRoles_Users" Association="ForumV2Model.Store.FK_UsersInRoles_Users">
+            <End EntitySet="Users" Role="Users" />
+            <End EntitySet="UsersInRoles" Role="UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTopicLastActiv_Topic" Association="ForumV2Model.Store.FK_UserTopicLastActiv_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="UserTopicLastActiv" EntitySet="UserTopicLastActiv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTopicLastActiv_Users" Association="ForumV2Model.Store.FK_UserTopicLastActiv_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTopicLastActiv" EntitySet="UserTopicLastActiv" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumID" />
+          </Key>
+          <Property Name="ForumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TopicsCount" Type="int" Nullable="false" />
+          <Property Name="ForumName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastPostID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="TopicID" Type="int" Nullable="false" />
+          <Property Name="ForumID" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="RoleLoweredName" Type="nvarchar" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicID" />
+          </Key>
+          <Property Name="TopicID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TopicName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="ForumID" Type="int" Nullable="false" />
+          <Property Name="PostsCount" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPostID" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="UserLoweredName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LockedDateOut" Type="datetime" Nullable="false" />
+          <Property Name="LockedReason" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="UserRealName" Type="nvarchar" MaxLength="32" />
+          <Property Name="ICQ" Type="nvarchar" MaxLength="20" />
+          <Property Name="About" Type="nvarchar" MaxLength="2000" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" />
+          <Property Name="Country" Type="nvarchar" MaxLength="64" />
+          <Property Name="BirthdayDate" Type="datetime" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="LoweredEmail" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="IsActivated" Type="bit" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="WebPage" Type="nvarchar" MaxLength="500" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="RoleId" Nullable="false" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UserTopicLastActiv">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TopicId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserActivLastTime" Type="datetime" Nullable="false" />
+          <Property Name="TopicId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Forum_Users">
+          <End Role="Users" Type="ForumV2Model.Store.Users" Multiplicity="1" />
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Forum">
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Topic">
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users">
+          <End Role="Users" Type="ForumV2Model.Store.Users" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Forum1">
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Users">
+          <End Role="Users" Type="ForumV2Model.Store.Users" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInRoles_Roles">
+          <End Type="ForumV2Model.Store.Roles" Multiplicity="1" Role="Roles" />
+          <End Type="ForumV2Model.Store.UsersInRoles" Multiplicity="*" Role="UsersInRoles" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInRoles_Users">
+          <End Type="ForumV2Model.Store.Users" Multiplicity="1" Role="Users" />
+          <End Type="ForumV2Model.Store.UsersInRoles" Multiplicity="*" Role="UsersInRoles" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTopicLastActiv_Topic">
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="1" />
+          <End Role="UserTopicLastActiv" Type="ForumV2Model.Store.UserTopicLastActiv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="UserTopicLastActiv">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTopicLastActiv_Users">
+          <End Role="Users" Type="ForumV2Model.Store.Users" Multiplicity="1" />
+          <End Role="UserTopicLastActiv" Type="ForumV2Model.Store.UserTopicLastActiv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserTopicLastActiv">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForumV2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ForumV2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Forum" EntityType="ForumV2Model.Forum" />
+          <EntitySet Name="Post" EntityType="ForumV2Model.Post" />
+          <EntitySet Name="Roles" EntityType="ForumV2Model.Roles" />
+          <EntitySet Name="Topic" EntityType="ForumV2Model.Topic" />
+          <EntitySet Name="Users" EntityType="ForumV2Model.Users" />
+          <EntitySet Name="UserTopicLastActiv" EntityType="ForumV2Model.UserTopicLastActiv" />
+          <AssociationSet Name="FK_Forum_Users" Association="ForumV2Model.FK_Forum_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Forum" Association="ForumV2Model.FK_Post_Forum">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Forum1" Association="ForumV2Model.FK_Topic_Forum1">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Topic" Association="ForumV2Model.FK_Post_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Users" Association="ForumV2Model.FK_Post_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Users" Association="ForumV2Model.FK_Topic_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTopicLastActiv_Topic" Association="ForumV2Model.FK_UserTopicLastActiv_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="UserTopicLastActiv" EntitySet="UserTopicLastActiv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTopicLastActiv_Users" Association="ForumV2Model.FK_UserTopicLastActiv_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTopicLastActiv" EntitySet="UserTopicLastActiv" />
+          </AssociationSet>
+          <EntitySet Name="UsersInRoles" EntityType="ForumV2Model.UsersInRoles" />
+          <AssociationSet Name="FK_UsersInRoles_Users" Association="ForumV2Model.FK_UsersInRoles_Users">
+            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInRoles_Roles" Association="ForumV2Model.FK_UsersInRoles_Roles">
+            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumID" />
+          </Key>
+          <Property Type="Int32" Name="ForumID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TopicsCount" Nullable="false" />
+          <Property Type="String" Name="ForumName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LastPostID" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="ForumV2Model.FK_Forum_Users" FromRole="Forum" ToRole="Users" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_Forum" FromRole="Forum" ToRole="Post" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Topic_Forum1" FromRole="Forum" ToRole="Topic" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Type="Int32" Name="PostID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TopicID" Nullable="false" />
+          <Property Type="Int32" Name="ForumID" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="DateAdded" Nullable="false" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Post_Forum" FromRole="Post" ToRole="Forum" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Post_Topic" FromRole="Post" ToRole="Topic" />
+          <NavigationProperty Name="Users" Relationship="ForumV2Model.FK_Post_Users" FromRole="Post" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleLoweredName" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UsersInRoles" Relationship="ForumV2Model.FK_UsersInRoles_Roles" FromRole="Roles" ToRole="UsersInRoles" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicID" />
+          </Key>
+          <Property Type="Int32" Name="TopicID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TopicName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ForumID" Nullable="false" />
+          <Property Type="Int32" Name="PostsCount" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="Int32" Name="LastPostID" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Topic_Forum1" FromRole="Topic" ToRole="Forum" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_Topic" FromRole="Topic" ToRole="Post" />
+          <NavigationProperty Name="Users" Relationship="ForumV2Model.FK_Topic_Users" FromRole="Topic" ToRole="Users" />
+          <NavigationProperty Name="UserTopicLastActiv" Relationship="ForumV2Model.FK_UserTopicLastActiv_Topic" FromRole="Topic" ToRole="UserTopicLastActiv" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserLoweredName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LockedDateOut" Nullable="false" />
+          <Property Type="String" Name="LockedReason" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsLocked" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <Property Type="String" Name="UserRealName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ICQ" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="About" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthdayDate" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActivated" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="String" Name="WebPage" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Forum_Users" FromRole="Users" ToRole="Forum" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_Users" FromRole="Users" ToRole="Post" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Topic_Users" FromRole="Users" ToRole="Topic" />
+          <NavigationProperty Name="UserTopicLastActiv" Relationship="ForumV2Model.FK_UserTopicLastActiv_Users" FromRole="Users" ToRole="UserTopicLastActiv" />
+          <NavigationProperty Name="UsersInRoles" Relationship="ForumV2Model.FK_UsersInRoles_Users" FromRole="Users" ToRole="UsersInRoles" />
+        </EntityType>
+        <EntityType Name="UserTopicLastActiv">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="TopicId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="UserActivLastTime" Nullable="false" />
+          <Property Type="Int32" Name="TopicId" Nullable="false" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_UserTopicLastActiv_Topic" FromRole="UserTopicLastActiv" ToRole="Topic" />
+          <NavigationProperty Name="Users" Relationship="ForumV2Model.FK_UserTopicLastActiv_Users" FromRole="UserTopicLastActiv" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Forum_Users">
+          <End Type="ForumV2Model.Users" Role="Users" Multiplicity="1" />
+          <End Type="ForumV2Model.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Forum">
+          <End Type="ForumV2Model.Forum" Role="Forum" Multiplicity="1" />
+          <End Type="ForumV2Model.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Forum1">
+          <End Type="ForumV2Model.Forum" Role="Forum" Multiplicity="1" />
+          <End Type="ForumV2Model.Topic" Role="Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Topic">
+          <End Type="ForumV2Model.Topic" Role="Topic" Multiplicity="1" />
+          <End Type="ForumV2Model.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Users">
+          <End Type="ForumV2Model.Users" Role="Users" Multiplicity="1" />
+          <End Type="ForumV2Model.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Users">
+          <End Type="ForumV2Model.Users" Role="Users" Multiplicity="1" />
+          <End Type="ForumV2Model.Topic" Role="Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTopicLastActiv_Topic">
+          <End Type="ForumV2Model.Topic" Role="Topic" Multiplicity="1" />
+          <End Type="ForumV2Model.UserTopicLastActiv" Role="UserTopicLastActiv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="UserTopicLastActiv">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTopicLastActiv_Users">
+          <End Type="ForumV2Model.Users" Role="Users" Multiplicity="1" />
+          <End Type="ForumV2Model.UserTopicLastActiv" Role="UserTopicLastActiv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserTopicLastActiv">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UsersInRoles" >
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <NavigationProperty Name="Users" Relationship="ForumV2Model.FK_UsersInRoles_Users" FromRole="UsersInRoles" ToRole="Users" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="ForumV2Model.FK_UsersInRoles_Roles" FromRole="UsersInRoles" ToRole="Roles" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UsersInRoles_Users">
+          <End Type="ForumV2Model.UsersInRoles" Role="UsersInRoles" Multiplicity="*" />
+          <End Type="ForumV2Model.Users" Role="Users" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInRoles_Roles">
+          <End Type="ForumV2Model.UsersInRoles" Role="UsersInRoles" Multiplicity="*" />
+          <End Type="ForumV2Model.Roles" Role="Roles" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForumV2ModelStoreContainer" CdmEntityContainer="ForumV2Entities">
+          <EntitySetMapping Name="Forum">
+            <EntityTypeMapping TypeName="IsTypeOf(ForumV2Model.Forum)">
+              <MappingFragment StoreEntitySet="Forum">
+                <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+                <ScalarProperty Name="TopicsCount" ColumnName="TopicsCount" />
+                <ScalarProperty Name="ForumName" ColumnName="ForumName" />
+                <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="ForumV2Model.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+                <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ForumV2Model.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleLoweredName" ColumnName="RoleLoweredName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topic">
+            <EntityTypeMapping TypeName="ForumV2Model.Topic">
+              <MappingFragment StoreEntitySet="Topic">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="PostsCount" ColumnName="PostsCount" />
+                <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+                <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+                <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ForumV2Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="WebPage" ColumnName="WebPage" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+                <ScalarProperty Name="UserRealName" ColumnName="UserRealName" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="LockedReason" ColumnName="LockedReason" />
+                <ScalarProperty Name="LockedDateOut" ColumnName="LockedDateOut" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserLoweredName" ColumnName="UserLoweredName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTopicLastActiv">
+            <EntityTypeMapping TypeName="ForumV2Model.UserTopicLastActiv">
+              <MappingFragment StoreEntitySet="UserTopicLastActiv">
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+                <ScalarProperty Name="UserActivLastTime" ColumnName="UserActivLastTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersInRoles">
+            <EntityTypeMapping TypeName="IsTypeOf(ForumV2Model.UsersInRoles)">
+              <MappingFragment StoreEntitySet="UsersInRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ForumModel" ZoomLevel="62">
+        <EntityTypeShape EntityType="ForumV2Model.Forum" Width="1.5" PointX="5.25" PointY="3.25" Height="2.7494921870529652" />
+        <EntityTypeShape EntityType="ForumV2Model.Post" Width="1.5" PointX="9.75" PointY="3.25" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="ForumV2Model.Roles" Width="1.5" PointX="3" PointY="8.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="ForumV2Model.Topic" Width="1.5" PointX="7.5" PointY="3" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="ForumV2Model.Users" Width="1.5" PointX="3" PointY="1.625" Height="6.0186165364583335" />
+        <EntityTypeShape EntityType="ForumV2Model.UserTopicLastActiv" Width="1.5" PointX="12.75" PointY="3.625" Height="1.9802864585071802" />
+        <AssociationConnector Association="ForumV2Model.FK_Forum_Users">
+          <ConnectorPoint PointX="4.5" PointY="4.6247460935264826" />
+          <ConnectorPoint PointX="5.25" PointY="4.6247460935264826" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_Forum">
+          <ConnectorPoint PointX="6.75" PointY="4.6247460935264826" />
+          <ConnectorPoint PointX="7.25" PointY="4.6247460935264826" />
+          <ConnectorPoint PointX="7.25" PointY="6.3840950521702595" />
+          <ConnectorPoint PointX="10.010414166666665" PointY="6.3840950521702586" />
+          <ConnectorPoint PointX="10.177080833333333" PointY="6.3840950521702595" />
+          <ConnectorPoint PointX="10.5" PointY="6.3840950521702595" />
+          <ConnectorPoint PointX="10.5" PointY="5.9994921875000031" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Topic_Forum1">
+          <ConnectorPoint PointX="6.75" PointY="3.8748730467632413" />
+          <ConnectorPoint PointX="7.5" PointY="3.8748730467632413" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_Topic">
+          <ConnectorPoint PointX="9" PointY="4.6247460937500016" />
+          <ConnectorPoint PointX="9.75" PointY="4.6247460937500016" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_Users">
+          <ConnectorPoint PointX="4.5" PointY="7.0138557943577577" />
+          <ConnectorPoint PointX="10.0937475" PointY="7.0138557943577577" />
+          <ConnectorPoint PointX="10.0937475" PointY="5.9994921875000031" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Topic_Users">
+          <ConnectorPoint PointX="4.5" PointY="3.0937499999565397" />
+          <ConnectorPoint PointX="7.5" PointY="3.0937499999565397" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_UserTopicLastActiv_Topic">
+          <ConnectorPoint PointX="9" PointY="6.0980436197233718" />
+          <ConnectorPoint PointX="10.010414166666665" PointY="6.0980436197233709" />
+          <ConnectorPoint PointX="10.177080833333333" PointY="6.0980436197233718" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="6.0980436197233709" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="6.0980436197233718" />
+          <ConnectorPoint PointX="13.010414166666665" PointY="6.0980436197233709" />
+          <ConnectorPoint PointX="13.177080833333333" PointY="6.0980436197233718" />
+          <ConnectorPoint PointX="13.5" PointY="6.0980436197233718" />
+          <ConnectorPoint PointX="13.5" PointY="5.60528645850718" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_UserTopicLastActiv_Users">
+          <ConnectorPoint PointX="4.5" PointY="6.6677229232640078" />
+          <ConnectorPoint PointX="10.010414166666665" PointY="6.667722923264007" />
+          <ConnectorPoint PointX="10.177080833333333" PointY="6.6677229232640078" />
+          <ConnectorPoint PointX="13.0937475" PointY="6.6677229232640078" />
+          <ConnectorPoint PointX="13.0937475" PointY="5.60528645850718" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ForumV2Model.UsersInRoles" Width="1.5" PointX="0.75" PointY="5" Height="1.7879850260416657" />
+        <AssociationConnector Association="ForumV2Model.FK_UsersInRoles_Users">
+          <ConnectorPoint PointX="2.25" PointY="5.8939925130208328" />
+          <ConnectorPoint PointX="3" PointY="5.8939925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_UsersInRoles_Roles">
+          <ConnectorPoint PointX="1.5" PointY="6.7879850260416656" />
+          <ConnectorPoint PointX="1.5" PointY="9.2689925130208337" />
+          <ConnectorPoint PointX="3" PointY="9.2689925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

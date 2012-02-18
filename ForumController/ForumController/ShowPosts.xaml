@@ -1,0 +1,13 @@
+﻿<Window x:Class="ForumController.ShowPosts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShowPosts" Height="500" Width="600">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" CanUserSortColumns="True" CanUserDeleteRows="False" CanUserResizeColumns="False" MinRowHeight="30" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Text}" Header="Post" IsReadOnly="False"/>
+                <DataGridTextColumn Binding="{Binding DateAdded}" Header="Date" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

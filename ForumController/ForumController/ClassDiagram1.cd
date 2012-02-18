@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ForumController.AddForum" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>AddForum.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.AddPost" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>AddPost.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.AddTopic" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAA=</HashCode>
+      <FileName>AddTopic.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.App" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.BanParameters" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>BanParameters.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.CDatabase" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAABAAAAAAAAAAGBBAAAAQAAAQAgAA=</HashCode>
+      <FileName>CDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.ChangePassword" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAABA=</HashCode>
+      <FileName>ChangePassword.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.CLoginState" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>CLoginState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.EditForum" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>EditForum.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.EditPost" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>EditPost.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.EditTopic" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAA=</HashCode>
+      <FileName>EditTopic.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.ForumExt" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ForumExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.ForumV2Entities" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAECBAAAIAAIAgAAQAAAAACwAEAEAAACAAAmABJAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Forum" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgICACQogAADAIAAAAACwACIAwAAAAQIABASAQACo=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Post" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAKCEAAAgAACEJQIAACAwgAIAwAgQCAQIACqAABAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Roles" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgAAAACBAAIAAAAAAgAAAAAGCEIEAAEEAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Topic" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICEAQIggEDAIAIAAAGwECIAwAgAAQAEBAoARCEg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Users" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UoQDqjAMCChNA0WIZEIEUhyQCAsHBFQKh1EIimA3Ucg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.UsersInRoles" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABCIAAAAAABAIIAAAAA4AAgAgAAAEAAAAAAAAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.UserTopicLastActiv" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCEACgAAAIAIAAAIAAwCAAAgAAEAAAIAAKAAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.MainWindow" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SIAkIowAIkIQBB0gCLAgANCIQkBDoABIKGGAAAeAYBI=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.PostExt" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PostExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.ShowPosts" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShowPosts.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.ShowUserProfile" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAQSAAAAAAQAAAAIgAAQACAAMACAAQAAAAABA=</HashCode>
+      <FileName>ShowUserProfile.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.TopicExt" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TopicExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.TryLogin" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>TryLogin.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForumController.Properties.Resources" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

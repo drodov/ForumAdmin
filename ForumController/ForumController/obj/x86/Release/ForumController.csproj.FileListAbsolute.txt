@@ -1,0 +1,80 @@
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\bin\Release\ForumController.exe.config
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\bin\Release\ForumController.exe
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\bin\Release\ForumController.pdb
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddTopic.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\MainWindow.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\TryLogin.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddTopic.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\MainWindow.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\TryLogin.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\App.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController_MarkupCompile.cache
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.g.resources
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.Properties.Resources.resources
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.exe
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.pdb
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddForum.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddPost.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ShowUserProfile.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddForum.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\AddPost.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ShowUserProfile.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\BanParameters.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditForum.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditPost.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditTopic.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\BanParameters.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditForum.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditPost.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\EditTopic.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\bin\Release\ForumController.exe.manifest
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\bin\Release\ForumController.application
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.exe.manifest
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ForumController.application
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ShowPosts.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ShowPosts.g.cs
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ChangePassword.baml
+C:\Users\Dmitry\Documents\Visual Studio 2010\Projects\ForumController\ForumController\obj\x86\Release\ChangePassword.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\bin\Release\ForumController.exe.config
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.exe
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.pdb
+C:\Users\Dmitry\Forum\ForumController\ForumController\bin\Release\ForumController.exe.manifest
+C:\Users\Dmitry\Forum\ForumController\ForumController\bin\Release\ForumController.application
+C:\Users\Dmitry\Forum\ForumController\ForumController\bin\Release\ForumController.exe
+C:\Users\Dmitry\Forum\ForumController\ForumController\bin\Release\ForumController.pdb
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddForum.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddPost.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddTopic.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\BanParameters.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ChangePassword.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditForum.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditPost.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditTopic.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\MainWindow.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ShowPosts.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ShowUserProfile.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\TryLogin.baml
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddForum.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddPost.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\AddTopic.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\BanParameters.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ChangePassword.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditForum.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditPost.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\EditTopic.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\MainWindow.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ShowPosts.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ShowUserProfile.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\TryLogin.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\App.g.cs
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController_MarkupCompile.cache
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.g.resources
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.Properties.Resources.resources
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.exe.manifest
+C:\Users\Dmitry\Forum\ForumController\ForumController\obj\x86\Release\ForumController.application

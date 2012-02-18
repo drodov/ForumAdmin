@@ -1,0 +1,44 @@
+﻿<Window x:Class="ForumController.ShowUserProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShowUserProfile" Height="Auto" Width="800">
+    <Grid>
+        <Label Content="Login" Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="LoginLabel" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="85,15,0,0" Name="LoginTextBox" VerticalAlignment="Top" Width="Auto" />
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Roles" Height="28" HorizontalAlignment="Left" Margin="305,15,0,0" Name="RoleLabel" VerticalAlignment="Top" />
+            <CheckBox Content="Admin" Height="16" HorizontalAlignment="Left" Margin="37,20,0,0" Name="RoleAdminCheckBox" VerticalAlignment="Top" Click="RoleAdminCheckBox_Click" />
+            <CheckBox Content="Moderator" Height="16" HorizontalAlignment="Left" Margin="30,20,0,0" Name="RoleModerCheckBox" VerticalAlignment="Top" Click="RoleModerCheckBox_Click" />
+            <CheckBox Content="Banned" Height="16" HorizontalAlignment="Left" Margin="30,20,0,0" Name="RoleBannedCheckBox" VerticalAlignment="Top" Click="RoleBanCheckBox_Click" />
+        </StackPanel>
+        <Label Content="Name" Height="28" HorizontalAlignment="Left" Margin="10,40,0,0" Name="NameLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="85,40,0,0" Name="NameTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Birthday" Height="28" HorizontalAlignment="Left" Margin="305,40,0,0" Name="BirthLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="382,40,0,0" Name="BirthTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Phone" Height="28" HorizontalAlignment="Left" Margin="305,100,0,0" Name="PhoneLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="382,100,0,0" Name="PhoneTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Web site" Height="28" HorizontalAlignment="Left" Margin="305,130,0,0" Name="WebLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="382,130,0,0" Name="WebTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="ICQ" Height="28" HorizontalAlignment="Left" Margin="12,100,0,0" Name="ICQLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="85,100,0,0" Name="ICQTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="City" Height="28" HorizontalAlignment="Left" Margin="305,70,0,0" Name="CityLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="382,70,0,0" Name="CityTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Country" Height="28" HorizontalAlignment="Left" Margin="10,70,0,0" Name="CountryLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="85,70,0,0" Name="CountryTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="10,130,0,0" Name="EmailLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="85,130,0,0" Name="EmailTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Registered" Height="28" HorizontalAlignment="Left" Margin="12,160,0,0" Name="RegLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="85,160,0,0" Name="RegTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Last activity" Height="28" HorizontalAlignment="Left" Margin="305,160,0,0" Name="LastActLabel" VerticalAlignment="Top" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="382,160,0,0" Name="LastActTextBox" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="About" Height="28" HorizontalAlignment="Left" Margin="12,190,0,0" Name="AboutLabel" VerticalAlignment="Top" />
+        <StackPanel>
+            <TextBox Height="200" TextWrapping="Wrap"  HorizontalAlignment="Left" Margin="12,220,0,0" Name="AboutTextBox" VerticalAlignment="Top" Width="450" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" IsReadOnly="True" />
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="12,10,0,0" Name="SaveButton" VerticalAlignment="Top" Width="150" Click="SaveButton_Click" />
+                <Button Content="Send Message" Height="23" Name="SendMesButton" Width="150" Margin="150,10,0,0" Click="SendMesButton_Click" />
+                <Button Content="Show User Posts" Height="23" Name="ShowUsersPostButton" Width="150" Margin="150,10,0,0" Click="ShowUsersPostButton_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

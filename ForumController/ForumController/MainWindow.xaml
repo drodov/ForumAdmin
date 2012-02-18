@@ -1,0 +1,185 @@
+﻿<Window x:Class="ForumController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ForumAdmin" Height="600" Width="800" Closing="Window_Closing">
+    <Grid>
+        <TabControl Height="Auto" HorizontalAlignment="Stretch" Name="tabControl1" VerticalAlignment="Stretch" Width="Auto" SelectionChanged="tabControl1_SelectionChanged">
+            <TabItem Header="News" Name="NewsTabItem">
+                <Grid>
+                    <Grid Height="230" HorizontalAlignment="Left" Margin="6,6,0,0" Name="selectNewsGrid" VerticalAlignment="Top" Width="297">
+                        <Label Content="NEWS:" Height="28" HorizontalAlignment="Left" Margin="40,35,0,0" Name="label1" VerticalAlignment="Top" FontSize="16" />
+                        <RadioButton Content="Users" Height="16" HorizontalAlignment="Left" Margin="40,74,0,0" Name="UsersRadioButton" VerticalAlignment="Top" Checked="UsersRadioButton_Checked" />
+                       <!-- <RadioButton Content="Forums" Height="16" HorizontalAlignment="Left" Margin="10,66,0,0" Name="forumsRadioButton" VerticalAlignment="Top" Checked="forumsRadioButton_Checked" />
+                        <RadioButton Content="Topics" Height="16" HorizontalAlignment="Left" Margin="10,88,0,0" Name="topicsRadioButton" VerticalAlignment="Top" Checked="topicsRadioButton_Checked" />
+                       --> <RadioButton Content="Private Messages" Height="16" HorizontalAlignment="Left" Margin="40,100,0,0" Name="messagesRadioButton" VerticalAlignment="Top" Checked="messagesRadioButton_Checked" />
+                        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="160,69,0,0" Name="countUsersNews" VerticalAlignment="Top" />
+                        <!--<Label Content="0" Height="28" HorizontalAlignment="Left" Margin="90,61,0,0" Name="countForumsNews" VerticalAlignment="Top" />
+                        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="90,83,0,0" Name="countTopicsNews" VerticalAlignment="Top" />
+                        --><Label Content="0" Height="28" HorizontalAlignment="Left" Margin="160,95,0,0" Name="countMessagesNews" VerticalAlignment="Top" />
+                        <!--<Button Content="Show" Height="23" HorizontalAlignment="Left" Margin="10,140,0,0" Name="ShowNewsButton" VerticalAlignment="Top" Width="75" />
+                    --></Grid>
+                    <Grid Height="513" HorizontalAlignment="Left" Margin="16,16,0,0" Name="showNewsGrid" VerticalAlignment="Top" Width="752" Visibility="Hidden">
+                        <Button Content="Back" Height="23" HorizontalAlignment="Left" Margin="30,30,0,0" Name="BackToNewsButton" VerticalAlignment="Top" Width="75" Click="BackToNewsButton_Click" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,60,0,0" Name="NewUsersDataGrid" VerticalAlignment="Top" Width="Auto" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True" CanUserResizeColumns="False" MouseDoubleClick="NewUsersDataGrid_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding UserName}" Header="Login" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding UserRealName}" Header="Real Name" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding Email}" Header="Email" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding ICQ}" Header="ICQ" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding CreatedDate}" Header="Registered" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding LastActivityDate}" Header="Last Activity" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Forum" Name="ForumTabItem" >
+                <Grid>
+                    <Grid Margin="0,0,0,0" Height="Auto" HorizontalAlignment="Stretch" Name="showForumsGrid" VerticalAlignment="Stretch" Width="Auto">
+                        <Label Content="Forums:" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="label2" VerticalAlignment="Top" FontSize="16" />
+                        <Button Content="Author" Height="23" HorizontalAlignment="Left" Margin="330,60,0,0" Name="AuthorForumButton" VerticalAlignment="Top" Width="75" Click="AuthorForumButton_Click" />
+                        <Button Content="Edit" Height="23" HorizontalAlignment="Left" Margin="230,60,0,0" Name="EditForumButton" VerticalAlignment="Top" Width="75" Click="EditForumButton_Click" />
+                        <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="130,60,0,0" Name="AddForumButton" VerticalAlignment="Top" Width="75" Click="AddForumButton_Click" />
+                        <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="30,90,0,0" Name="ForumsDataGrid" VerticalAlignment="Top" Width="auto" CanUserAddRows="False" CanUserDeleteRows="True" PreviewKeyDown="ForumsDataGrid_PreviewKeyDown" CanUserSortColumns="True"  CanUserResizeColumns="False"  CanUserResizeRows="False" MinRowHeight="30" Block.TextAlignment="Center" MouseDoubleClick="ForumsDataGrid_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ForumName}" Header="Forum's Name" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding TopicsCount}" Header="Topics Count" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Author}" Header="Author" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding CreateDate}" Header="Date Create" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid Margin="0,30,0,0" Height="Auto" HorizontalAlignment="Stretch" Name="showTopicsGrid" VerticalAlignment="Stretch" Width="Auto" Visibility="Hidden">
+                        <Label Content="Topics:" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="label3" VerticalAlignment="Top" FontSize="16" />
+                        <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="30,90,0,0" Name="TopicsDataGrid" VerticalAlignment="Top" Width="auto" CanUserAddRows="False" CanUserDeleteRows="True" PreviewKeyDown="TopicsDataGrid_PreviewKeyDown" CanUserSortColumns="True" CanUserResizeRows="False"  CanUserResizeColumns="False"  MinRowHeight="30" MouseDoubleClick="TopicsDataGrid_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding TopicName}" Header="Topic's Name" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding PostsCount}" Header="Posts Count" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Author}" Header="Author" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding CreateDate}" Header="Date Create" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Content="Author" Height="23" HorizontalAlignment="Left" Margin="330,60,0,0" Name="AuthorTopicButton" VerticalAlignment="Top" Width="75" Click="AuthorTopicButton_Click" />
+                        <Button Content="Edit" Height="23" HorizontalAlignment="Left" Margin="230,60,0,0" Name="EditTopicButton" VerticalAlignment="Top" Width="75" Click="EditTopicButton_Click" />
+                        <Button Content="Back" Height="23" HorizontalAlignment="Left" Margin="30,60,0,0" Name="BackToForumsButton" VerticalAlignment="Top" Width="75" Click="BackToForumsButton_Click" />
+                        <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="130,60,0,0" Name="AddTopicButton" VerticalAlignment="Top" Width="75" Click="AddTopicButton_Click" />
+                        <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="30,0,0,0" Name="CurForumlabel" VerticalAlignment="Top" FontSize="18" />
+                    </Grid>
+                    <Grid Margin="0,30,0,0" Height="Auto" HorizontalAlignment="Stretch" Name="showPostsGrid" VerticalAlignment="Stretch" Width="Auto" Visibility="Hidden" DataContext="{Binding}">
+                        <Label Content="" Height="Auto" HorizontalAlignment="Left" Margin="30,0,0,0" Name="CurTopiclabel" VerticalAlignment="Top" FontSize="18" />
+                        <Label Content="Posts:" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="label5" VerticalAlignment="Top" FontSize="16" />
+                        <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="30,90,0,0" Name="PostsDataGrid" VerticalAlignment="Top" Width="auto" CanUserAddRows="False" CanUserDeleteRows="True" PreviewKeyDown="PostsDataGrid_PreviewKeyDown" CanUserSortColumns="True" CanUserResizeRows="False" MinRowHeight="30">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Text}" Header="Post" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Author}" Header="Author" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding DateAdded}" Header="Added" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Content="Back" Height="23" HorizontalAlignment="Left" Margin="30,60,0,0" Name="BackToTopicsButton" VerticalAlignment="Top" Width="75" Click="BackToTopicsButton_Click" />
+                        <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="130,60,0,0" Name="AddPostButton" VerticalAlignment="Top" Width="75" Click="AddPostButton_Click" />
+                        <Button Content="Edit" Height="23" HorizontalAlignment="Left" Margin="230,60,0,0" Name="EditPostButton" VerticalAlignment="Top" Width="75" Click="EditPostButton_Click" />
+                        <Button Content="Author" Height="23" HorizontalAlignment="Left" Margin="330,60,0,0" Name="AuthorPostButton" VerticalAlignment="Top" Width="75" Click="AuthorPostButton_Click" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Users" Name="UsersTabItem">
+                <Grid>
+                    <Grid HorizontalAlignment="Left" Margin="6,0,0,0" Name="selectUserGrid" VerticalAlignment="Top">
+                        <Label Content="Login:" Height="28" HorizontalAlignment="Left" Margin="30,30,0,0" Name="label4" VerticalAlignment="Top" />
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="80,32,0,0" Name="loginTextBox" VerticalAlignment="Top" Width="280" />
+                        <Button Content="Find" Height="23" HorizontalAlignment="Left" Margin="375,32,0,0" Name="FindUsersButton" VerticalAlignment="Top" Width="100" Click="FindUsersButton_Click" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,90,0,0" Name="UsersDataGrid" VerticalAlignment="Top" Width="Auto" CanUserAddRows="False" CanUserDeleteRows="False" MinRowHeight="30" CanUserSortColumns="True" CanUserResizeRows="False" MouseDoubleClick="UsersDataGrid_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding UserName}" Header="Login" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding UserRealName}" Header="Real Name" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding Email}" Header="Email" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding ICQ}" Header="ICQ" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding CreatedDate}" Header="Registered" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding LastActivityDate}" Header="Last Activity" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton Content="All" Height="16" HorizontalAlignment="Left" Margin="30,65,0,0" Name="AllUserRadioButton" VerticalAlignment="Top" Checked="FindUsersButton_Click" IsChecked="True"/>
+                            <RadioButton Content="Administrators" Height="16" HorizontalAlignment="Left" Margin="30,65,0,0" Name="AdminRadioButton" VerticalAlignment="Top" Checked="FindUsersButton_Click" />
+                            <RadioButton Content="Moderators" Height="16" HorizontalAlignment="Left" Margin="30,65,0,0" Name="ModerRadioButton" VerticalAlignment="Top" Checked="FindUsersButton_Click" />
+                            <RadioButton Content="Banned Users" Height="16" HorizontalAlignment="Left" Margin="30,65,0,0" Name="BanUserRadioButton" VerticalAlignment="Top" Checked="FindUsersButton_Click" />
+                            </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Account" Name="AccountTabItem">
+                <Grid>
+                    <TabControl Height="Auto" HorizontalAlignment="Stretch" Name="tabControl2" VerticalAlignment="Stretch" Width="Auto" TabStripPlacement="Left" SelectionChanged="tabControl2_SelectionChanged">
+                        <TabItem Header="New Messages" Name="NewMesTabItem" Height="50" MouseDoubleClick="NewMesTabItem_MouseDoubleClick">
+                            <Grid>
+                                <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="NewMesDataGrid" VerticalAlignment="Top" Width="Auto" MinRowHeight="30" CanUserAddRows="False" CanUserSortColumns="True" CanUserDeleteRows="False" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Text}" Header="Post" IsReadOnly="True"/>
+                                        <DataGridTextColumn Binding="{Binding Author}" Header="Author" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding DateAdded}" Header="Added" IsReadOnly="True" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Inbox" Name="InboxTabItem" Height="50" PreviewKeyDown="InboxTabItem_PreviewKeyDown">
+                            <Grid>
+                                <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="InboxDataGrid" VerticalAlignment="Top" Width="Auto" CanUserAddRows="False" CanUserSortColumns="True" CanUserDeleteRows="True" MinRowHeight="30" MouseDoubleClick="InboxDataGrid_MouseDoubleClick">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Text}" Header="Post" IsReadOnly="True"/>
+                                        <DataGridTextColumn Binding="{Binding Author}" Header="Author" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding DateAdded}" Header="Added" IsReadOnly="True" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Sent" Name="SentTabItem" Height="50" MouseDoubleClick="SentTabItem_MouseDoubleClick">
+                            <Grid>
+                                <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="30,30,0,0" Name="SentDataGrid" VerticalAlignment="Top" Width="Auto" CanUserAddRows="False" MinRowHeight="30" CanUserDeleteRows="True" CanUserSortColumns="True" PreviewKeyDown="SentDataGrid_PreviewKeyDown">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Text}" Header="Post" IsReadOnly="True"/>
+                                        <DataGridTextColumn Binding="{Binding Author}" Header="Sent To" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding DateAdded}" Header="Added" IsReadOnly="True" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Profile" Name="ProfileTabItem" Height="50">
+                            <Grid>
+                                <Label Content="Login" Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="LoginLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,15,0,0" Name="LoginTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Name" Height="28" HorizontalAlignment="Left" Margin="10,40,0,0" Name="NameLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,45,0,0" Name="NameTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Birthday" Height="28" HorizontalAlignment="Left" Margin="305,40,0,0" Name="BirthLabel" VerticalAlignment="Top" />
+                                <DatePicker Height="25" Name="BirthDatePicker" Width="115" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="382,45,0,0" />
+                                <Label Content="Phone" Height="28" HorizontalAlignment="Left" Margin="305,100,0,0" Name="PoneLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="382,105,0,0" Name="PhoneTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Web site" Height="28" HorizontalAlignment="Left" Margin="305,130,0,0" Name="WebLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="382,135,0,0" Name="WebTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="ICQ" Height="28" HorizontalAlignment="Left" Margin="12,100,0,0" Name="ICQLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,105,0,0" Name="ICQTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="City" Height="28" HorizontalAlignment="Left" Margin="305,70,0,0" Name="CityLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="382,75,0,0" Name="CityTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Country" Height="28" HorizontalAlignment="Left" Margin="10,70,0,0" Name="CountryLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,75,0,0" Name="CountryTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="10,130,0,0" Name="EmailLabel" VerticalAlignment="Top" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,135,0,0" Name="EmailTextBox" VerticalAlignment="Top" Width="Auto" />
+                                <Label Content="Registered" Height="28" HorizontalAlignment="Left" Margin="12,160,0,0" Name="RegLabel" VerticalAlignment="Top" />
+                               <!-- <TextBox Height="23" HorizontalAlignment="Left" Margin="85,165,0,0" Name="RegTextBox" VerticalAlignment="Top" Width="Auto" IsReadOnly="True" /> -->
+                                <Label Content="Last activity" Height="28" HorizontalAlignment="Left" Margin="305,160,0,0" Name="LsstActLabel" VerticalAlignment="Top" />
+                                <!--<TextBox Height="23" HorizontalAlignment="Left" Margin="382,165,0,0" Name="LastActTextBox" VerticalAlignment="Top" Width="Auto" IsReadOnly="True" />-->
+                                <Label Content="About" Height="28" HorizontalAlignment="Left" Margin="12,190,0,0" Name="AboutLabel" VerticalAlignment="Top" />
+                                <Button Content="Change password" Height="23" Name="ChngPassButton" Width="Auto" Margin="305,190,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ChngPassButton_Click" />
+                                <Label Content="" Height="28" HorizontalAlignment="Left" Margin="382,160,0,0" Name="LastActLabel" VerticalAlignment="Top" />
+                                <Label Content="" Height="28" HorizontalAlignment="Left" Margin="85,160,0,0" Name="ReggLabel" VerticalAlignment="Top" />
+                                <StackPanel>
+                                    <TextBox Height="200" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="12,220,0,0" Name="AboutTextBox" VerticalAlignment="Top" Width="450" MaxLength="2000" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" />
+                                    <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="12,10,0,0" Name="SaveProfileButton" VerticalAlignment="Top" Width="150" Click="SaveProfileButton_Click" />
+                                </StackPanel>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

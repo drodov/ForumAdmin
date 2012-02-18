@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ForumV2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ForumV2ModelStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="ForumV2Model.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Roles" EntityType="ForumV2Model.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="ForumV2Model.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="ForumV2Model.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Forum" EntityType="ForumV2Model.Store.Forum" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Post" EntityType="ForumV2Model.Store.Post" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Topic" EntityType="ForumV2Model.Store.Topic" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__4CA06362" Association="ForumV2Model.Store.FK__aspnet_Me__UserI__4CA06362">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__74AE54BC" Association="ForumV2Model.Store.FK__aspnet_Us__RoleI__74AE54BC">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__73BA3083" Association="ForumV2Model.Store.FK__aspnet_Us__UserI__73BA3083">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_aspnet_Users" Association="ForumV2Model.Store.FK_Forum_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_aspnet_Users" Association="ForumV2Model.Store.FK_Post_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Forum" Association="ForumV2Model.Store.FK_Post_Forum">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Topic" Association="ForumV2Model.Store.FK_Post_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_aspnet_Users" Association="ForumV2Model.Store.FK_Topic_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Forum1" Association="ForumV2Model.Store.FK_Topic_Forum1">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumID" />
+          </Key>
+          <Property Name="ForumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TopicsCount" Type="int" Nullable="false" />
+          <Property Name="ForumName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastPostID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="TopicID" Type="int" Nullable="false" />
+          <Property Name="ForumID" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicID" />
+          </Key>
+          <Property Name="TopicID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TopicName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ForumID" Type="int" Nullable="false" />
+          <Property Name="PostsCount" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPostID" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__4CA06362">
+          <End Role="aspnet_Users" Type="ForumV2Model.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="ForumV2Model.Store.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__74AE54BC">
+          <End Role="aspnet_Roles" Type="ForumV2Model.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="ForumV2Model.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__73BA3083">
+          <End Role="aspnet_Users" Type="ForumV2Model.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="ForumV2Model.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Forum">
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Topic">
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Store.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Forum1">
+          <End Role="Forum" Type="ForumV2Model.Store.Forum" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Store.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForumV2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ForumV2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Membership" EntityType="ForumV2Model.aspnet_Membership" />
+          <EntitySet Name="aspnet_Roles" EntityType="ForumV2Model.aspnet_Roles" />
+          <EntitySet Name="aspnet_Users" EntityType="ForumV2Model.aspnet_Users" />
+          <EntitySet Name="Forum" EntityType="ForumV2Model.Forum" />
+          <EntitySet Name="Post" EntityType="ForumV2Model.Post" />
+          <EntitySet Name="Topic" EntityType="ForumV2Model.Topic" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__4CA06362" Association="ForumV2Model.FK__aspnet_Me__UserI__4CA06362">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_aspnet_Users" Association="ForumV2Model.FK_Forum_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_aspnet_Users" Association="ForumV2Model.FK_Post_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_aspnet_Users" Association="ForumV2Model.FK_Topic_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Forum" Association="ForumV2Model.FK_Post_Forum">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Topic_Forum1" Association="ForumV2Model.FK_Topic_Forum1">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Topic" EntitySet="Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Topic" Association="ForumV2Model.FK_Post_Topic">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="ForumV2Model.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="ForumV2Model.FK__aspnet_Me__UserI__4CA06362" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="ForumV2Model.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="ForumV2Model.FK__aspnet_Me__UserI__4CA06362" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Forum_aspnet_Users" FromRole="aspnet_Users" ToRole="Forum" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_aspnet_Users" FromRole="aspnet_Users" ToRole="Post" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Topic_aspnet_Users" FromRole="aspnet_Users" ToRole="Topic" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="ForumV2Model.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumID" />
+          </Key>
+          <Property Name="ForumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TopicsCount" Type="Int32" Nullable="false" />
+          <Property Name="ForumName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LastPostID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="ForumV2Model.FK_Forum_aspnet_Users" FromRole="Forum" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_Forum" FromRole="Forum" ToRole="Post" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Topic_Forum1" FromRole="Forum" ToRole="Topic" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="TopicID" Type="Int32" Nullable="false" />
+          <Property Name="ForumID" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="ForumV2Model.FK_Post_aspnet_Users" FromRole="Post" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Post_Forum" FromRole="Post" ToRole="Forum" />
+          <NavigationProperty Name="Topic" Relationship="ForumV2Model.FK_Post_Topic" FromRole="Post" ToRole="Topic" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="TopicID" />
+          </Key>
+          <Property Name="TopicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TopicName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ForumID" Type="Int32" Nullable="false" />
+          <Property Name="PostsCount" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastPostID" Type="Int32" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="ForumV2Model.FK_Topic_aspnet_Users" FromRole="Topic" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Forum" Relationship="ForumV2Model.FK_Topic_Forum1" FromRole="Topic" ToRole="Forum" />
+          <NavigationProperty Name="Post" Relationship="ForumV2Model.FK_Post_Topic" FromRole="Topic" ToRole="Post" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__4CA06362">
+          <End Role="aspnet_Users" Type="ForumV2Model.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="ForumV2Model.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.aspnet_Users" Multiplicity="1" />
+          <End Role="Forum" Type="ForumV2Model.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.aspnet_Users" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_aspnet_Users">
+          <End Role="aspnet_Users" Type="ForumV2Model.aspnet_Users" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Forum">
+          <End Role="Forum" Type="ForumV2Model.Forum" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Topic_Forum1">
+          <End Role="Forum" Type="ForumV2Model.Forum" Multiplicity="1" />
+          <End Role="Topic" Type="ForumV2Model.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="ForumID" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="ForumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Topic">
+          <End Role="Topic" Type="ForumV2Model.Topic" Multiplicity="1" />
+          <End Role="Post" Type="ForumV2Model.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="TopicID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="TopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Role="aspnet_Roles" Type="ForumV2Model.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="ForumV2Model.aspnet_Users" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForumV2ModelStoreContainer" CdmEntityContainer="ForumV2Entities">
+          <EntitySetMapping Name="aspnet_Membership"><EntityTypeMapping TypeName="ForumV2Model.aspnet_Membership"><MappingFragment StoreEntitySet="aspnet_Membership">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+            <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+            <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+            <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+            <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+            <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+            <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+            <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+            <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+            <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+            <ScalarProperty Name="Comment" ColumnName="Comment" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles"><EntityTypeMapping TypeName="ForumV2Model.aspnet_Roles"><MappingFragment StoreEntitySet="aspnet_Roles">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users"><EntityTypeMapping TypeName="ForumV2Model.aspnet_Users"><MappingFragment StoreEntitySet="aspnet_Users">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Forum"><EntityTypeMapping TypeName="ForumV2Model.Forum"><MappingFragment StoreEntitySet="Forum">
+            <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+            <ScalarProperty Name="TopicsCount" ColumnName="TopicsCount" />
+            <ScalarProperty Name="ForumName" ColumnName="ForumName" />
+            <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Post"><EntityTypeMapping TypeName="ForumV2Model.Post"><MappingFragment StoreEntitySet="Post">
+            <ScalarProperty Name="PostID" ColumnName="PostID" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+            <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Topic"><EntityTypeMapping TypeName="ForumV2Model.Topic"><MappingFragment StoreEntitySet="Topic">
+            <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+            <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+            <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+            <ScalarProperty Name="PostsCount" ColumnName="PostsCount" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="ForumV2Model.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="UsersModel" ZoomLevel="71">
+        <EntityTypeShape EntityType="ForumV2Model.aspnet_Membership" Width="1.5" PointX="5.25" PointY="3.25" Height="5.2494108072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForumV2Model.aspnet_Roles" Width="1.5" PointX="0.75" PointY="6.625" Height="2.1725878906249987" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForumV2Model.aspnet_Users" Width="1.5" PointX="3" PointY="6" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForumV2Model.Forum" Width="1.5" PointX="5.25" PointY="9.25" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForumV2Model.Post" Width="1.5" PointX="7.5" PointY="7.625" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForumV2Model.Topic" Width="1.5" PointX="10.5" PointY="7.5" Height="2.9417936197916674" IsExpanded="true" />
+        <AssociationConnector Association="ForumV2Model.FK__aspnet_Me__UserI__4CA06362" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.2497054036458337" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="7.2497054036458328" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="7.2497054036458337" />
+          <ConnectorPoint PointX="5.25" PointY="7.2497054036458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Forum_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="9.326396484375" />
+          <ConnectorPoint PointX="3.75" PointY="10.662944835937498" />
+          <ConnectorPoint PointX="5.25" PointY="10.662944835937498" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="8.8747054036458337" />
+          <ConnectorPoint PointX="7.5" PointY="8.8747054036458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Topic_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="6" />
+          <ConnectorPoint PointX="3.75" PointY="5.75" />
+          <ConnectorPoint PointX="4.75" PointY="5.75" />
+          <ConnectorPoint PointX="4.75" PointY="9.0958968098958337" />
+          <ConnectorPoint PointX="7.25" PointY="9.0958968098958337" />
+          <ConnectorPoint PointX="7.25" PointY="7.375" />
+          <ConnectorPoint PointX="10.125" PointY="7.375" />
+          <ConnectorPoint PointX="10.125" PointY="8.9708968098958337" />
+          <ConnectorPoint PointX="10.5" PointY="8.9708968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_Forum" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="9.81224609375" />
+          <ConnectorPoint PointX="7.5" PointY="9.81224609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Topic_Forum1" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.220643403645834" />
+          <ConnectorPoint PointX="11.25" PointY="11.220643403645834" />
+          <ConnectorPoint PointX="11.25" PointY="10.441793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.FK_Post_Topic" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="9.7351944986979166" />
+          <ConnectorPoint PointX="9" PointY="9.7351944986979166" />
+        </AssociationConnector>
+        <AssociationConnector Association="ForumV2Model.aspnet_UsersInRoles" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="7.7112939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

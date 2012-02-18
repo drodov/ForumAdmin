@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ForumV2ModelStoreContainer" CdmEntityContainer="ForumV2EntitiesForums">
+    <EntitySetMapping Name="Forum">
+      <EntityTypeMapping TypeName="ForumV2Model.Forum">
+        <MappingFragment StoreEntitySet="Forum">
+          <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+          <ScalarProperty Name="TopicsCount" ColumnName="TopicsCount" />
+          <ScalarProperty Name="ForumName" ColumnName="ForumName" />
+          <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

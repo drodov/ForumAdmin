@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ForumV2ModelStoreContainer" CdmEntityContainer="ForumV2Entities">
+    <EntitySetMapping Name="Forum">
+      <EntityTypeMapping TypeName="IsTypeOf(ForumV2Model.Forum)">
+        <MappingFragment StoreEntitySet="Forum">
+          <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+          <ScalarProperty Name="TopicsCount" ColumnName="TopicsCount" />
+          <ScalarProperty Name="ForumName" ColumnName="ForumName" />
+          <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="ForumV2Model.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ForumV2Model.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleLoweredName" ColumnName="RoleLoweredName" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topic">
+      <EntityTypeMapping TypeName="ForumV2Model.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LastPostID" ColumnName="LastPostID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PostsCount" ColumnName="PostsCount" />
+          <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+          <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ForumV2Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="WebPage" ColumnName="WebPage" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+          <ScalarProperty Name="UserRealName" ColumnName="UserRealName" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="LockedReason" ColumnName="LockedReason" />
+          <ScalarProperty Name="LockedDateOut" ColumnName="LockedDateOut" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserLoweredName" ColumnName="UserLoweredName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTopicLastActiv">
+      <EntityTypeMapping TypeName="ForumV2Model.UserTopicLastActiv">
+        <MappingFragment StoreEntitySet="UserTopicLastActiv">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="UserActivLastTime" ColumnName="UserActivLastTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersInRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(ForumV2Model.UsersInRoles)">
+        <MappingFragment StoreEntitySet="UsersInRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

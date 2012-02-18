@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForumV2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ForumV2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Forum" EntityType="ForumV2Model.Forum" />
+  </EntityContainer>
+  <EntityType Name="Forum">
+    <Key>
+      <PropertyRef Name="ForumID" />
+    </Key>
+    <Property Name="ForumID" Type="Int32" Nullable="false" />
+    <Property Name="TopicsCount" Type="Int32" Nullable="false" />
+    <Property Name="ForumName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastPostID" Type="Int32" />
+  </EntityType>
+</Schema>
